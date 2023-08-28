@@ -58,7 +58,7 @@ final_X_valid.columns = X_valid.columns
 
 # Define and fit model
 model = RandomForestRegressor(n_estimators=100, random_state=0)
-model.fit(final_X_train, y_train)
+model.fit(final_X_train.values, y_train.values)
 
 # Get validation predictions and MAE
 preds_valid = model.predict(final_X_valid)
