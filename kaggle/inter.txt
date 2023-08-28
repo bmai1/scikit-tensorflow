@@ -7,3 +7,9 @@ Data often has missing values (nonresponse, null)
     - from sklearn.impute import SimpleImputer
     - can add column to track imputed entries for better predictions
 
+Categorical variables (limited options) [in contrast to Quantitative]
+> nominal = no intrinsic ranking
+
+1. Drop categorical variables
+2. Ordinal encoding (assign unique values to each)
+3. One-hot encoding (new columns indicating the presence (or absence))
