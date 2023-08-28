@@ -61,7 +61,7 @@ model = RandomForestRegressor(n_estimators=100, random_state=0)
 model.fit(final_X_train.values, y_train.values)
 
 # Get validation predictions and MAE
-preds_valid = model.predict(final_X_valid)
+preds_valid = model.predict(final_X_valid.values)
 print("MAE (Your approach):")
 print(mean_absolute_error(y_valid, preds_valid))
 
@@ -69,7 +69,7 @@ print(mean_absolute_error(y_valid, preds_valid))
 final_X_test = pd.DataFrame(final_imputer.transform(X_test))
 
 # Fill in the line below: get test predictions
-preds_test = model.predict(final_X_test)
+preds_test = model.predict(final_X_test.values)
 
 output = pd.DataFrame({'Id': X_test.index,
                        'SalePrice': preds_test})
