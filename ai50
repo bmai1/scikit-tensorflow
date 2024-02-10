@@ -1,0 +1,85 @@
+Backpropagation - main algorithm to train NN with hidden layers
+    - Calculate error for output layer
+    - Moving towards earliest hidden layer:
+        - Current layer sends errors to preceding layer
+        - Update weights
+
+Overfitting - modeling training data too closely, can't generalize new data
+    - Dropout: temporarily remove units during learning
+ 
+
+TensorFlow
+    - model.add(tf.keras.layers.Dense())
+        - Dense layer: each node in current layer connected to all nodes from previous 
+
+    # Train neural network
+    model.compile(
+        optimizer="adam",
+        loss="binary_crossentropy",
+        metrics=["accuracy"]
+    )
+    model.fit(X_training, y_training, epochs=20)
+
+    # Evaluate how well model performs
+    model.evaluate(X_testing, y_testing, verbose=2)
+
+Computer Vision
+    - understanding digital images often achieved through neural nets
+    - each color value in each pixel is input? --> disadvantages of structure, input too large
+
+    - Image Convolution: apply filter adding each pixel value of image to neighbors, weighted by kernel matrix
+    - kernel matrix achieves different tasks, e.g. edge detection
+    - (Max) Pooling - reduce computational cost by pixel sampling (highest value) from regions
+
+Convolutional Neural Networks (CNN)
+    - NN using convolution to analyze images
+    - GPU intensive, so unrealistic for this mac-slut?
+    - convolution (filters) --> pooling (sampling) --> flattening (NN input)
+    - conv/pool can repeat 
+
+Recurrent Neural Network (RNN)
+    - Feed-Forward NN = input -> network -> output
+    - RNN: non-linear structure, uses own output as input
+    - helpful for sequence of outputs (such as language sentence)
+
+
+Lecture 6 Language
+
+Natural Language Processing: human language as input to AI, examples:
+    - summarization
+    - info extraction
+    - translation
+    - identification
+    - speech recoginition
+
+Syntax - sentence structure (can be grammatical and ambiguous)
+Semantics - meaning of words
+
+Context-Free Grammar: abstract text from meaning to represent structure
+
+Natural Language Toolkit (nltk) - uses grammar rules to generate syntactic trees
+n-gram - sequence of n items from sample of text
+tokenization - split character sequence into tokens (words / sentences), deal with spaces / punctuation
+
+Bag-of-words Model 
+    - rep. text as unordered collection of words
+    - ignoring grammar can be useful for (sentiment) classification
+
+Naive Bayes
+    - recall Bayes' Rule: P(b | a) = P(b) * P(a | b) / P(a)
+    - use for sentiment analysis with bag-of-words model, P(sentiment | text)
+    - assume probability of each word independent
+    - Additive (Laplace) Smoothing
+
+Word Representation
+    - One-hot --> inefficient
+    - Distributed --> meaning distributed across multiple values in vector
+    - can infer meaning of word from environment
+
+word2vec
+    - algorithm to generate distributed representations of words
+    - Skip-Gram architecture (NN)?? 
+    - recall RNN
+
+Attention - NN ability to decided importance of values
+Transformers, position encoding, self-attention
